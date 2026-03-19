@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_danh_muc_tai_san_form" model="ir.ui.view">
+            <field name="name">danh_muc_tai_san.form</field>
+            <field name="model">danh_muc_tai_san</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="ma_danh_muc"/>
+                                <field name="ten_danh_muc"/>
+                            </group>
+                            <group>
+                                <field name="mo_ta"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Danh sách tài sản">
+                                <field name="tai_san_ids">
+                                    <tree>
+                                        <field name="ma_tai_san"/>
+                                        <field name="ten_tai_san"/>
+                                        <field name="trang_thai"/>
+                                        <field name="gia_tri"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_danh_muc_tai_san_tree" model="ir.ui.view">
+            <field name="name">danh_muc_tai_san.tree</field>
+            <field name="model">danh_muc_tai_san</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ma_danh_muc"/>
+                    <field name="ten_danh_muc"/>
+                    <field name="mo_ta"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_danh_muc_tai_san" model="ir.actions.act_window">
+            <field name="name">Danh mục tài sản</field>
+            <field name="res_model">danh_muc_tai_san</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

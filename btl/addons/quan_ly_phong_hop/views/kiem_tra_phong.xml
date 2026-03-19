@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_kiem_tra_form" model="ir.ui.view">
+            <field name="name">kiem_tra_phong.form</field>
+            <field name="model">kiem_tra_phong</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="dat_phong_id"/>
+                                <field name="phong_hop_id"/>
+                                <field name="nhan_vien_kiem_tra"/>
+                            </group>
+                            <group>
+                                <field name="ngay_kiem_tra"/>
+                                <field name="ket_qua"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Chi tiết kiểm tra thiết bị">
+                                <field name="chi_tiet_ids">
+                                    <tree editable="bottom">
+                                        <field name="tai_san_id"/>
+                                        <field name="trang_thai"/>
+                                        <field name="ghi_chu"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <field name="ghi_chu" placeholder="Ghi chú chung..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_kiem_tra_tree" model="ir.ui.view">
+            <field name="name">kiem_tra_phong.tree</field>
+            <field name="model">kiem_tra_phong</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="ket_qua in ('thieu','hong')" decoration-success="ket_qua == 'dat'">
+                    <field name="phong_hop_id"/>
+                    <field name="dat_phong_id"/>
+                    <field name="nhan_vien_kiem_tra"/>
+                    <field name="ngay_kiem_tra"/>
+                    <field name="ket_qua"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_kiem_tra" model="ir.actions.act_window">
+            <field name="name">Kiểm tra phòng</field>
+            <field name="res_model">kiem_tra_phong</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

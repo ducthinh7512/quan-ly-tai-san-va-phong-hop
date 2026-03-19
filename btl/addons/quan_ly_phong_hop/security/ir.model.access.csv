@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_phong_hop,phong_hop,model_phong_hop,base.group_user,1,1,1,1
+access_dat_phong,dat_phong,model_dat_phong,base.group_user,1,1,1,1
+access_kiem_tra_phong,kiem_tra_phong,model_kiem_tra_phong,base.group_user,1,1,1,1
+access_kiem_tra_phong_chi_tiet,kiem_tra_phong_chi_tiet,model_kiem_tra_phong_chi_tiet,base.group_user,1,1,1,1
+access_su_co_phong,su_co_phong,model_su_co_phong,base.group_user,1,1,1,1
+access_goi_y_phong_wizard,goi_y_phong_wizard,model_goi_y_phong_wizard,base.group_user,1,1,1,1

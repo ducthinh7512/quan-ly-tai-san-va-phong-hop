@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_muon_tai_san_form" model="ir.ui.view">
+            <field name="name">muon_tai_san.form</field>
+            <field name="model">muon_tai_san</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_duyet" string="Duyệt" type="object" class="btn-primary" attrs="{'invisible': [('trang_thai', '!=', 'yeu_cau')]}"/>
+                        <button name="action_giao" string="Giao tài sản" type="object" class="btn-primary" attrs="{'invisible': [('trang_thai', '!=', 'da_duyet')]}"/>
+                        <button name="action_tra" string="Trả tài sản" type="object" class="btn-success" attrs="{'invisible': [('trang_thai', '!=', 'dang_muon')]}"/>
+                        <button name="action_huy" string="Hủy" type="object" class="btn-danger" attrs="{'invisible': [('trang_thai', 'in', ['da_tra', 'huy'])]}"/>
+                        <field name="trang_thai" widget="statusbar" statusbar_visible="yeu_cau,da_duyet,dang_muon,da_tra"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Thông tin mượn">
+                                <field name="tai_san_id"/>
+                                <field name="nhan_vien_id"/>
+                            </group>
+                            <group string="Thời gian">
+                                <field name="ngay_muon"/>
+                                <field name="ngay_tra_du_kien"/>
+                                <field name="ngay_tra_thuc_te"/>
+                            </group>
+                        </group>
+                        <field name="ghi_chu" placeholder="Ghi chú..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_muon_tai_san_tree" model="ir.ui.view">
+            <field name="name">muon_tai_san.tree</field>
+            <field name="model">muon_tai_san</field>
+            <field name="arch" type="xml">
+                <tree decoration-success="trang_thai == 'da_tra'" decoration-info="trang_thai == 'dang_muon'" decoration-muted="trang_thai == 'huy'">
+                    <field name="tai_san_id"/>
+                    <field name="nhan_vien_id"/>
+                    <field name="ngay_muon"/>
+                    <field name="ngay_tra_du_kien"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_muon_tai_san" model="ir.actions.act_window">
+            <field name="name">Mượn tài sản</field>
+            <field name="res_model">muon_tai_san</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

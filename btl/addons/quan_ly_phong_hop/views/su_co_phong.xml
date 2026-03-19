@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_su_co_phong_form" model="ir.ui.view">
+            <field name="name">su_co_phong.form</field>
+            <field name="model">su_co_phong</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_doi_phong" string="🔄 Đổi phòng" type="object" class="btn-warning" attrs="{'invisible': [('trang_thai', '!=', 'moi')]}"/>
+                        <button name="action_goi_sua_chua" string="🔧 Gọi sửa chữa" type="object" class="btn-primary" attrs="{'invisible': [('trang_thai', '!=', 'moi')]}"/>
+                        <button name="action_hoan_thanh" string="✅ Đã xử lý" type="object" class="btn-success" attrs="{'invisible': [('trang_thai', '!=', 'dang_xu_ly')]}"/>
+                        <field name="trang_thai" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group string="Thông tin sự cố">
+                                <field name="dat_phong_id"/>
+                                <field name="phong_hop_id"/>
+                                <field name="nhan_vien_bao_cao"/>
+                                <field name="thiet_bi_hong"/>
+                            </group>
+                            <group string="Xử lý">
+                                <field name="ngay_bao_cao"/>
+                                <field name="xu_ly"/>
+                                <field name="phong_moi_id" attrs="{'invisible': [('xu_ly', '!=', 'doi_phong')]}"/>
+                                <field name="nhan_vien_sua" attrs="{'invisible': [('xu_ly', '!=', 'sua_chua')]}"/>
+                            </group>
+                        </group>
+                        <field name="mo_ta" placeholder="Mô tả chi tiết sự cố..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_su_co_phong_tree" model="ir.ui.view">
+            <field name="name">su_co_phong.tree</field>
+            <field name="model">su_co_phong</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="phong_hop_id"/>
+                    <field name="thiet_bi_hong"/>
+                    <field name="nhan_vien_bao_cao"/>
+                    <field name="xu_ly"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_su_co_phong" model="ir.actions.act_window">
+            <field name="name">Sự cố phòng họp</field>
+            <field name="res_model">su_co_phong</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_phong_hop_form" model="ir.ui.view">
+            <field name="name">phong_hop.form</field>
+            <field name="model">phong_hop</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="hinh_anh" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1><field name="ten_phong"/></h1>
+                        </div>
+                        <group>
+                            <group string="Thông tin phòng">
+                                <field name="ma_phong"/>
+                                <field name="vi_tri"/>
+                                <field name="suc_chua"/>
+                                <field name="trang_thai"/>
+                            </group>
+                            <group string="Mô tả">
+                                <field name="mo_ta" nolabel="1"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Thiết bị trong phòng">
+                                <field name="thiet_bi_ids">
+                                    <tree>
+                                        <field name="ma_tai_san"/>
+                                        <field name="ten_tai_san"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Lịch đặt phòng">
+                                <field name="dat_phong_ids">
+                                    <tree>
+                                        <field name="nhan_vien_id"/>
+                                        <field name="thoi_gian_bat_dau"/>
+                                        <field name="thoi_gian_ket_thuc"/>
+                                        <field name="so_nguoi"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_phong_hop_tree" model="ir.ui.view">
+            <field name="name">phong_hop.tree</field>
+            <field name="model">phong_hop</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ma_phong"/>
+                    <field name="ten_phong"/>
+                    <field name="vi_tri"/>
+                    <field name="suc_chua"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="phong_hop_search">
+            <field name="model">phong_hop</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ten_phong"/>
+                    <field name="vi_tri"/>
+                    <filter string="Sẵn sàng" name="san_sang" domain="[('trang_thai','=','san_sang')]"/>
+                    <filter string="Đang sử dụng" name="dang_sd" domain="[('trang_thai','=','dang_su_dung')]"/>
+                    <group expand="0" string="Nhóm theo">
+                        <filter string="Trạng thái" name="group_tt" context="{'group_by':'trang_thai'}"/>
+                        <filter string="Vị trí" name="group_vt" context="{'group_by':'vi_tri'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_phong_hop" model="ir.actions.act_window">
+            <field name="name">Phòng họp</field>
+            <field name="res_model">phong_hop</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="phong_hop_search"/>
+        </record>
+    </data>
+</odoo>

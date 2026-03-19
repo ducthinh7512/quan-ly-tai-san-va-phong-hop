@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_danh_muc_tai_san,danh_muc_tai_san,model_danh_muc_tai_san,base.group_user,1,1,1,1
+access_tai_san,tai_san,model_tai_san,base.group_user,1,1,1,1
+access_muon_tai_san,muon_tai_san,model_muon_tai_san,base.group_user,1,1,1,1
+access_bao_tri_tai_san,bao_tri_tai_san,model_bao_tri_tai_san,base.group_user,1,1,1,1
+access_su_co_tai_san,su_co_tai_san,model_su_co_tai_san,base.group_user,1,1,1,1

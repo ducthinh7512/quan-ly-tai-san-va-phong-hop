@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_goi_y_phong_form" model="ir.ui.view">
+            <field name="name">goi_y_phong_wizard.form</field>
+            <field name="model">goi_y_phong_wizard</field>
+            <field name="arch" type="xml">
+                <form string="🤖 AI Gợi ý phòng họp thông minh">
+                    <sheet>
+                        <div class="oe_title" style="margin-bottom: 16px;">
+                            <h1>
+                                <span style="font-size: 28px;">🤖 Gợi ý phòng họp thông minh</span>
+                            </h1>
+                            <p style="color: #666; font-size: 14px;">
+                                Nhập yêu cầu bằng ngôn ngữ tự nhiên — AI sẽ phân tích và tìm phòng phù hợp nhất cho bạn.
+                            </p>
+                        </div>
+
+                        <separator string="📝 Yêu cầu của bạn"/>
+                        <group col="2">
+                            <group>
+                                <field name="yeu_cau" placeholder="Ví dụ: Phòng thuyết trình 25 người có máy chiếu và loa" widget="text" nolabel="1" colspan="2"/>
+                            </group>
+                            <group>
+                                <field name="so_nguoi" widget="integer"/>
+                                <field name="thoi_gian_bat_dau"/>
+                                <field name="thoi_gian_ket_thuc"/>
+                            </group>
+                        </group>
+
+                        <div attrs="{'invisible': [('da_tim', '=', False)]}" style="margin-top: 16px;">
+                            <separator string="🧠 Kết quả phân tích AI"/>
+                            <div style="background: #f0f5ff; border-left: 4px solid #4a86e8; padding: 12px 16px; border-radius: 4px; margin-bottom: 16px;">
+                                <field name="phan_tich" readonly="1" nolabel="1" widget="text"/>
+                            </div>
+
+                            <separator string="📋 Danh sách phòng gợi ý"/>
+                            <field name="ket_qua_ids" nolabel="1">
+                                <tree decoration-success="trang_thai == 'san_sang'" decoration-warning="trang_thai == 'dang_su_dung'" decoration-danger="trang_thai == 'bao_tri'">
+                                    <field name="ma_phong"/>
+                                    <field name="ten_phong" string="Tên phòng"/>
+                                    <field name="suc_chua" string="Sức chứa"/>
+                                    <field name="vi_tri" string="Vị trí"/>
+                                    <field name="trang_thai"/>
+                                </tree>
+                            </field>
+
+                            <separator string="✅ Đặt phòng"/>
+                            <group>
+                                <field name="phong_chon_id" domain="[('id', 'in', ket_qua_ids)]" options="{'no_create': True}" string="Phòng bạn muốn đặt"/>
+                            </group>
+                        </div>
+
+                        <field name="da_tim" invisible="1"/>
+                    </sheet>
+
+                    <footer>
+                        <button name="action_goi_y" string="🔍 Tìm phòng" type="object" class="btn-primary"/>
+                        <button name="action_dat_phong" string="📝 Đặt phòng ngay" type="object" class="btn-success" attrs="{'invisible': [('da_tim', '=', False)]}"/>
+                        <button string="Đóng" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_goi_y_phong" model="ir.actions.act_window">
+            <field name="name">🤖 AI Gợi ý phòng</field>
+            <field name="res_model">goi_y_phong_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_su_co_form" model="ir.ui.view">
+            <field name="name">su_co_tai_san.form</field>
+            <field name="model">su_co_tai_san</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_xu_ly" string="Xử lý" type="object" class="btn-primary" attrs="{'invisible': [('trang_thai', '!=', 'moi')]}"/>
+                        <button name="action_hoan_thanh" string="Hoàn thành" type="object" class="btn-success" attrs="{'invisible': [('trang_thai', '!=', 'dang_xu_ly')]}"/>
+                        <field name="trang_thai" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tai_san_id"/>
+                                <field name="nhan_vien_bao_cao"/>
+                                <field name="loai_su_co"/>
+                            </group>
+                            <group>
+                                <field name="ngay_bao_cao"/>
+                                <field name="hanh_dong"/>
+                            </group>
+                        </group>
+                        <field name="mo_ta" placeholder="Mô tả sự cố..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_su_co_tree" model="ir.ui.view">
+            <field name="name">su_co_tai_san.tree</field>
+            <field name="model">su_co_tai_san</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="loai_su_co == 'mat'" decoration-warning="loai_su_co == 'hong'">
+                    <field name="tai_san_id"/>
+                    <field name="loai_su_co"/>
+                    <field name="nhan_vien_bao_cao"/>
+                    <field name="ngay_bao_cao"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_su_co" model="ir.actions.act_window">
+            <field name="name">Sự cố tài sản</field>
+            <field name="res_model">su_co_tai_san</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

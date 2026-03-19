@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Thêm tab "Tài sản đang mượn" vào form nhân viên -->
+        <record id="view_nhan_vien_tai_san_inherit" model="ir.ui.view">
+            <field name="name">nhan_vien.form.tai_san.inherit</field>
+            <field name="model">nhan_vien</field>
+            <field name="inherit_id" ref="nhan_su.view_nhan_vien_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Tài sản đang mượn" name="tai_san">
+                            <field name="muon_tai_san_ids" readonly="1">
+                                <tree>
+                                    <field name="tai_san_id"/>
+                                    <field name="ngay_muon"/>
+                                    <field name="ngay_tra_du_kien"/>
+                                    <field name="trang_thai"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_phong_hop_root" name="Quản lý Phòng họp" sequence="2"/>
+
+        <menuitem name="🤖 AI Gợi ý phòng" id="menu_goi_y" parent="menu_phong_hop_root" sequence="0" action="action_goi_y_phong"/>
+        <menuitem name="Phòng họp" id="menu_phong_hop" parent="menu_phong_hop_root" sequence="1" action="action_phong_hop"/>
+        <menuitem name="Đặt phòng" id="menu_dat_phong" parent="menu_phong_hop_root" sequence="2" action="action_dat_phong"/>
+        <menuitem name="Kiểm tra phòng" id="menu_kiem_tra" parent="menu_phong_hop_root" sequence="3" action="action_kiem_tra"/>
+        <menuitem name="Sự cố phòng" id="menu_su_co_phong" parent="menu_phong_hop_root" sequence="4" action="action_su_co_phong"/>
+    </data>
+</odoo>

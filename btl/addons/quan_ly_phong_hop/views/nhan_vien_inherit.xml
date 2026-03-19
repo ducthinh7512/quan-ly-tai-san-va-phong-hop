@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Thêm tab "Lịch đặt phòng" vào form nhân viên -->
+        <record id="view_nhan_vien_phong_hop_inherit" model="ir.ui.view">
+            <field name="name">nhan_vien.form.phong_hop.inherit</field>
+            <field name="model">nhan_vien</field>
+            <field name="inherit_id" ref="nhan_su.view_nhan_vien_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="inside">
+                    <notebook>
+                        <page string="Lịch đặt phòng" name="dat_phong">
+                            <field name="dat_phong_ids" readonly="1">
+                                <tree>
+                                    <field name="phong_hop_id"/>
+                                    <field name="thoi_gian_bat_dau"/>
+                                    <field name="thoi_gian_ket_thuc"/>
+                                    <field name="trang_thai"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ==================== DANH MỤC TÀI SẢN ==================== -->
+        <record id="dm_dien_tu" model="danh_muc_tai_san">
+            <field name="ma_danh_muc">DM001</field>
+            <field name="ten_danh_muc">Thiết bị điện tử</field>
+            <field name="mo_ta">Laptop, máy tính bàn, máy in, máy scan</field>
+        </record>
+        <record id="dm_trinh_chieu" model="danh_muc_tai_san">
+            <field name="ma_danh_muc">DM002</field>
+            <field name="ten_danh_muc">Thiết bị trình chiếu</field>
+            <field name="mo_ta">Máy chiếu, màn chiếu, bút trình chiếu</field>
+        </record>
+        <record id="dm_am_thanh" model="danh_muc_tai_san">
+            <field name="ma_danh_muc">DM003</field>
+            <field name="ten_danh_muc">Thiết bị âm thanh</field>
+            <field name="mo_ta">Loa, micro, tai nghe, amply</field>
+        </record>
+        <record id="dm_noi_that" model="danh_muc_tai_san">
+            <field name="ma_danh_muc">DM004</field>
+            <field name="ten_danh_muc">Nội thất văn phòng</field>
+            <field name="mo_ta">Bàn, ghế, tủ, kệ sách</field>
+        </record>
+        <record id="dm_van_phong" model="danh_muc_tai_san">
+            <field name="ma_danh_muc">DM005</field>
+            <field name="ten_danh_muc">Văn phòng phẩm</field>
+            <field name="mo_ta">Bảng trắng, bút, giấy, bảng flipchart</field>
+        </record>
+
+        <!-- ==================== TÀI SẢN ==================== -->
+        <!-- Thiết bị điện tử -->
+        <record id="ts_laptop_01" model="tai_san">
+            <field name="ma_tai_san">TS001</field>
+            <field name="ten_tai_san">Laptop Dell Latitude 5520</field>
+            <field name="danh_muc_id" ref="dm_dien_tu"/>
+            <field name="ngay_mua">2024-01-15</field>
+            <field name="gia_tri">25000000</field>
+            <field name="vi_tri">Phòng IT - Tầng 2</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Laptop Dell i7, RAM 16GB, SSD 512GB</field>
+        </record>
+        <record id="ts_laptop_02" model="tai_san">
+            <field name="ma_tai_san">TS002</field>
+            <field name="ten_tai_san">Laptop HP ProBook 450</field>
+            <field name="danh_muc_id" ref="dm_dien_tu"/>
+            <field name="ngay_mua">2024-03-20</field>
+            <field name="gia_tri">20000000</field>
+            <field name="vi_tri">Phòng IT - Tầng 2</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Laptop HP i5, RAM 8GB, SSD 256GB</field>
+        </record>
+        <record id="ts_mayin" model="tai_san">
+            <field name="ma_tai_san">TS003</field>
+            <field name="ten_tai_san">Máy in Canon LBP2900</field>
+            <field name="danh_muc_id" ref="dm_dien_tu"/>
+            <field name="ngay_mua">2023-06-10</field>
+            <field name="gia_tri">5000000</field>
+            <field name="vi_tri">Phòng Hành chính - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Máy in laser trắng đen</field>
+        </record>
+
+        <!-- Thiết bị trình chiếu -->
+        <record id="ts_maychieu_01" model="tai_san">
+            <field name="ma_tai_san">TS004</field>
+            <field name="ten_tai_san">Máy chiếu Epson EB-X51</field>
+            <field name="danh_muc_id" ref="dm_trinh_chieu"/>
+            <field name="ngay_mua">2024-02-01</field>
+            <field name="gia_tri">15000000</field>
+            <field name="vi_tri">Phòng họp A01 - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Máy chiếu 3LCD, 3800 lumens, XGA</field>
+        </record>
+        <record id="ts_maychieu_02" model="tai_san">
+            <field name="ma_tai_san">TS005</field>
+            <field name="ten_tai_san">Máy chiếu BenQ MH733</field>
+            <field name="danh_muc_id" ref="dm_trinh_chieu"/>
+            <field name="ngay_mua">2024-05-15</field>
+            <field name="gia_tri">18000000</field>
+            <field name="vi_tri">Phòng họp B01 - Tầng 2</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Máy chiếu Full HD, 4000 lumens</field>
+        </record>
+        <record id="ts_manchieu" model="tai_san">
+            <field name="ma_tai_san">TS006</field>
+            <field name="ten_tai_san">Màn chiếu treo tường 100 inch</field>
+            <field name="danh_muc_id" ref="dm_trinh_chieu"/>
+            <field name="ngay_mua">2024-02-01</field>
+            <field name="gia_tri">3000000</field>
+            <field name="vi_tri">Phòng họp A01 - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+
+        <!-- Thiết bị âm thanh -->
+        <record id="ts_loa_01" model="tai_san">
+            <field name="ma_tai_san">TS007</field>
+            <field name="ten_tai_san">Loa JBL Professional EON715</field>
+            <field name="danh_muc_id" ref="dm_am_thanh"/>
+            <field name="ngay_mua">2024-04-10</field>
+            <field name="gia_tri">12000000</field>
+            <field name="vi_tri">Phòng họp A01 - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Loa di động công suất lớn</field>
+        </record>
+        <record id="ts_micro_01" model="tai_san">
+            <field name="ma_tai_san">TS008</field>
+            <field name="ten_tai_san">Micro không dây Shure SLX-D</field>
+            <field name="danh_muc_id" ref="dm_am_thanh"/>
+            <field name="ngay_mua">2024-04-10</field>
+            <field name="gia_tri">8000000</field>
+            <field name="vi_tri">Phòng họp A01 - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Bộ 2 micro không dây</field>
+        </record>
+        <record id="ts_loa_02" model="tai_san">
+            <field name="ma_tai_san">TS009</field>
+            <field name="ten_tai_san">Loa Bluetooth Sony SRS-XB43</field>
+            <field name="danh_muc_id" ref="dm_am_thanh"/>
+            <field name="ngay_mua">2024-06-20</field>
+            <field name="gia_tri">3500000</field>
+            <field name="vi_tri">Phòng họp C01 - Tầng 3</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+        <record id="ts_camera" model="tai_san">
+            <field name="ma_tai_san">TS010</field>
+            <field name="ten_tai_san">Camera hội nghị Logitech Rally</field>
+            <field name="danh_muc_id" ref="dm_am_thanh"/>
+            <field name="ngay_mua">2024-07-01</field>
+            <field name="gia_tri">25000000</field>
+            <field name="vi_tri">Phòng họp B01 - Tầng 2</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Camera + micro + loa tích hợp cho video call</field>
+        </record>
+
+        <!-- Nội thất -->
+        <record id="ts_ban_hop" model="tai_san">
+            <field name="ma_tai_san">TS011</field>
+            <field name="ten_tai_san">Bàn họp hình chữ U 20 chỗ</field>
+            <field name="danh_muc_id" ref="dm_noi_that"/>
+            <field name="ngay_mua">2023-01-01</field>
+            <field name="gia_tri">30000000</field>
+            <field name="vi_tri">Phòng họp A01 - Tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+        <record id="ts_ghe" model="tai_san">
+            <field name="ma_tai_san">TS012</field>
+            <field name="ten_tai_san">Ghế xoay văn phòng (bộ 10)</field>
+            <field name="danh_muc_id" ref="dm_noi_that"/>
+            <field name="ngay_mua">2023-01-01</field>
+            <field name="gia_tri">15000000</field>
+            <field name="vi_tri">Kho tầng 1</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+
+        <!-- Văn phòng phẩm -->
+        <record id="ts_bang_trang" model="tai_san">
+            <field name="ma_tai_san">TS013</field>
+            <field name="ten_tai_san">Bảng trắng di động 120x180cm</field>
+            <field name="danh_muc_id" ref="dm_van_phong"/>
+            <field name="ngay_mua">2024-01-10</field>
+            <field name="gia_tri">2000000</field>
+            <field name="vi_tri">Phòng họp C01 - Tầng 3</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+        <record id="ts_flipchart" model="tai_san">
+            <field name="ma_tai_san">TS014</field>
+            <field name="ten_tai_san">Bảng Flipchart có bánh xe</field>
+            <field name="danh_muc_id" ref="dm_van_phong"/>
+            <field name="ngay_mua">2024-03-05</field>
+            <field name="gia_tri">1500000</field>
+            <field name="vi_tri">Phòng họp D01 - Tầng 3</field>
+            <field name="trang_thai">san_sang</field>
+        </record>
+
+    </data>
+</odoo>

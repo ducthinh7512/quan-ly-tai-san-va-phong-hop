@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ==================== CHỨC VỤ ==================== -->
+        <record id="chuc_vu_gd" model="chuc_vu">
+            <field name="ma_chuc_vu">CV001</field>
+            <field name="ten_chuc_vu">Giám đốc</field>
+            <field name="mo_ta">Quản lý điều hành toàn bộ công ty</field>
+        </record>
+        <record id="chuc_vu_tp" model="chuc_vu">
+            <field name="ma_chuc_vu">CV002</field>
+            <field name="ten_chuc_vu">Trưởng phòng</field>
+            <field name="mo_ta">Quản lý và điều hành phòng ban</field>
+        </record>
+        <record id="chuc_vu_pp" model="chuc_vu">
+            <field name="ma_chuc_vu">CV003</field>
+            <field name="ten_chuc_vu">Phó phòng</field>
+            <field name="mo_ta">Hỗ trợ trưởng phòng quản lý</field>
+        </record>
+        <record id="chuc_vu_nv" model="chuc_vu">
+            <field name="ma_chuc_vu">CV004</field>
+            <field name="ten_chuc_vu">Nhân viên</field>
+            <field name="mo_ta">Nhân viên chính thức</field>
+        </record>
+        <record id="chuc_vu_tts" model="chuc_vu">
+            <field name="ma_chuc_vu">CV005</field>
+            <field name="ten_chuc_vu">Thực tập sinh</field>
+            <field name="mo_ta">Sinh viên thực tập tại công ty</field>
+        </record>
+
+        <!-- ==================== PHÒNG BAN ==================== -->
+        <record id="phong_ban_it" model="phong_ban">
+            <field name="ma_phong_ban">PB001</field>
+            <field name="ten_phong_ban">Phòng Công nghệ thông tin</field>
+            <field name="mo_ta">Quản lý hệ thống IT, phần mềm, hạ tầng mạng</field>
+        </record>
+        <record id="phong_ban_ns" model="phong_ban">
+            <field name="ma_phong_ban">PB002</field>
+            <field name="ten_phong_ban">Phòng Nhân sự</field>
+            <field name="mo_ta">Tuyển dụng, đào tạo, quản lý nhân sự</field>
+        </record>
+        <record id="phong_ban_kd" model="phong_ban">
+            <field name="ma_phong_ban">PB003</field>
+            <field name="ten_phong_ban">Phòng Kinh doanh</field>
+            <field name="mo_ta">Phát triển khách hàng, bán hàng</field>
+        </record>
+        <record id="phong_ban_kt" model="phong_ban">
+            <field name="ma_phong_ban">PB004</field>
+            <field name="ten_phong_ban">Phòng Kế toán</field>
+            <field name="mo_ta">Quản lý tài chính, kế toán</field>
+        </record>
+        <record id="phong_ban_hc" model="phong_ban">
+            <field name="ma_phong_ban">PB005</field>
+            <field name="ten_phong_ban">Phòng Hành chính</field>
+            <field name="mo_ta">Quản lý hành chính, văn phòng phẩm, cơ sở vật chất</field>
+        </record>
+
+        <!-- ==================== NHÂN VIÊN ==================== -->
+        <record id="nv_01" model="nhan_vien">
+            <field name="ma_dinh_danh">NV001</field>
+            <field name="ho_ten">Nguyễn Văn An</field>
+            <field name="ngay_sinh">1985-05-15</field>
+            <field name="gioi_tinh">nam</field>
+            <field name="que_quan">Hà Nội</field>
+            <field name="dia_chi">123 Trần Duy Hưng, Cầu Giấy, Hà Nội</field>
+            <field name="email">an.nguyen@company.com</field>
+            <field name="so_dien_thoai">0901234001</field>
+            <field name="phong_ban_id" ref="phong_ban_it"/>
+            <field name="chuc_vu_id" ref="chuc_vu_gd"/>
+        </record>
+        <record id="nv_02" model="nhan_vien">
+            <field name="ma_dinh_danh">NV002</field>
+            <field name="ho_ten">Trần Thị Bích</field>
+            <field name="ngay_sinh">1990-08-20</field>
+            <field name="gioi_tinh">nu</field>
+            <field name="que_quan">Hải Phòng</field>
+            <field name="dia_chi">45 Lê Lợi, Ngô Quyền, Hải Phòng</field>
+            <field name="email">bich.tran@company.com</field>
+            <field name="so_dien_thoai">0901234002</field>
+            <field name="phong_ban_id" ref="phong_ban_ns"/>
+            <field name="chuc_vu_id" ref="chuc_vu_tp"/>
+        </record>
+        <record id="nv_03" model="nhan_vien">
+            <field name="ma_dinh_danh">NV003</field>
+            <field name="ho_ten">Lê Hoàng Cường</field>
+            <field name="ngay_sinh">1992-03-10</field>
+            <field name="gioi_tinh">nam</field>
+            <field name="que_quan">Đà Nẵng</field>
+            <field name="dia_chi">78 Nguyễn Văn Linh, Hải Châu, Đà Nẵng</field>
+            <field name="email">cuong.le@company.com</field>
+            <field name="so_dien_thoai">0901234003</field>
+            <field name="phong_ban_id" ref="phong_ban_kd"/>
+            <field name="chuc_vu_id" ref="chuc_vu_tp"/>
+        </record>
+        <record id="nv_04" model="nhan_vien">
+            <field name="ma_dinh_danh">NV004</field>
+            <field name="ho_ten">Phạm Minh Đức</field>
+            <field name="ngay_sinh">1995-11-25</field>
+            <field name="gioi_tinh">nam</field>
+            <field name="que_quan">TP. Hồ Chí Minh</field>
+            <field name="dia_chi">200 Nguyễn Thị Minh Khai, Q3, TP.HCM</field>
+            <field name="email">duc.pham@company.com</field>
+            <field name="so_dien_thoai">0901234004</field>
+            <field name="phong_ban_id" ref="phong_ban_it"/>
+            <field name="chuc_vu_id" ref="chuc_vu_nv"/>
+        </record>
+        <record id="nv_05" model="nhan_vien">
+            <field name="ma_dinh_danh">NV005</field>
+            <field name="ho_ten">Hoàng Thị Hoa</field>
+            <field name="ngay_sinh">1993-07-08</field>
+            <field name="gioi_tinh">nu</field>
+            <field name="que_quan">Nghệ An</field>
+            <field name="dia_chi">15 Lê Duẩn, TP Vinh, Nghệ An</field>
+            <field name="email">hoa.hoang@company.com</field>
+            <field name="so_dien_thoai">0901234005</field>
+            <field name="phong_ban_id" ref="phong_ban_kt"/>
+            <field name="chuc_vu_id" ref="chuc_vu_tp"/>
+        </record>
+        <record id="nv_06" model="nhan_vien">
+            <field name="ma_dinh_danh">NV006</field>
+            <field name="ho_ten">Võ Thanh Giang</field>
+            <field name="ngay_sinh">1998-01-14</field>
+            <field name="gioi_tinh">nu</field>
+            <field name="que_quan">Huế</field>
+            <field name="dia_chi">32 Trần Hưng Đạo, TP Huế</field>
+            <field name="email">giang.vo@company.com</field>
+            <field name="so_dien_thoai">0901234006</field>
+            <field name="phong_ban_id" ref="phong_ban_hc"/>
+            <field name="chuc_vu_id" ref="chuc_vu_nv"/>
+        </record>
+        <record id="nv_07" model="nhan_vien">
+            <field name="ma_dinh_danh">NV007</field>
+            <field name="ho_ten">Đặng Quốc Hùng</field>
+            <field name="ngay_sinh">1996-09-30</field>
+            <field name="gioi_tinh">nam</field>
+            <field name="que_quan">Bình Dương</field>
+            <field name="dia_chi">56 Phạm Ngọc Thạch, Thủ Dầu Một, Bình Dương</field>
+            <field name="email">hung.dang@company.com</field>
+            <field name="so_dien_thoai">0901234007</field>
+            <field name="phong_ban_id" ref="phong_ban_it"/>
+            <field name="chuc_vu_id" ref="chuc_vu_pp"/>
+        </record>
+        <record id="nv_08" model="nhan_vien">
+            <field name="ma_dinh_danh">NV008</field>
+            <field name="ho_ten">Ngô Thị Kim</field>
+            <field name="ngay_sinh">1997-04-18</field>
+            <field name="gioi_tinh">nu</field>
+            <field name="que_quan">Cần Thơ</field>
+            <field name="dia_chi">89 Hai Bà Trưng, Ninh Kiều, Cần Thơ</field>
+            <field name="email">kim.ngo@company.com</field>
+            <field name="so_dien_thoai">0901234008</field>
+            <field name="phong_ban_id" ref="phong_ban_kd"/>
+            <field name="chuc_vu_id" ref="chuc_vu_nv"/>
+        </record>
+        <record id="nv_09" model="nhan_vien">
+            <field name="ma_dinh_danh">NV009</field>
+            <field name="ho_ten">Bùi Đình Minh Hiếu</field>
+            <field name="ngay_sinh">2000-12-05</field>
+            <field name="gioi_tinh">nam</field>
+            <field name="que_quan">Hà Nam</field>
+            <field name="dia_chi">10 Lý Thường Kiệt, TP Phủ Lý, Hà Nam</field>
+            <field name="email">hieu.bui@company.com</field>
+            <field name="so_dien_thoai">0901234009</field>
+            <field name="phong_ban_id" ref="phong_ban_ns"/>
+            <field name="chuc_vu_id" ref="chuc_vu_tts"/>
+        </record>
+        <record id="nv_10" model="nhan_vien">
+            <field name="ma_dinh_danh">NV010</field>
+            <field name="ho_ten">Lý Thị Lan</field>
+            <field name="ngay_sinh">1999-06-22</field>
+            <field name="gioi_tinh">nu</field>
+            <field name="que_quan">Quảng Ninh</field>
+            <field name="dia_chi">67 Lê Thánh Tông, Hạ Long, Quảng Ninh</field>
+            <field name="email">lan.ly@company.com</field>
+            <field name="so_dien_thoai">0901234010</field>
+            <field name="phong_ban_id" ref="phong_ban_hc"/>
+            <field name="chuc_vu_id" ref="chuc_vu_tts"/>
+        </record>
+
+        <!-- Gán trưởng phòng -->
+        <record id="phong_ban_it" model="phong_ban">
+            <field name="truong_phong" ref="nv_01"/>
+        </record>
+        <record id="phong_ban_ns" model="phong_ban">
+            <field name="truong_phong" ref="nv_02"/>
+        </record>
+        <record id="phong_ban_kd" model="phong_ban">
+            <field name="truong_phong" ref="nv_03"/>
+        </record>
+        <record id="phong_ban_kt" model="phong_ban">
+            <field name="truong_phong" ref="nv_05"/>
+        </record>
+        <record id="phong_ban_hc" model="phong_ban">
+            <field name="truong_phong" ref="nv_06"/>
+        </record>
+
+    </data>
+</odoo>

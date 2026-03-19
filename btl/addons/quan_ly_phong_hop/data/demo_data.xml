@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- ==================== PHÒNG HỌP ==================== -->
+        <record id="phong_a01" model="phong_hop">
+            <field name="ma_phong">PH001</field>
+            <field name="ten_phong">Phòng họp A01 - Hội trường</field>
+            <field name="vi_tri">Tầng 1, Tòa nhà A</field>
+            <field name="suc_chua">50</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Hội trường lớn, phù hợp hội thảo, đào tạo, sự kiện công ty</field>
+            <field name="thiet_bi_ids" eval="[(6, 0, [ref('quan_ly_tai_san.ts_maychieu_01'), ref('quan_ly_tai_san.ts_manchieu'), ref('quan_ly_tai_san.ts_loa_01'), ref('quan_ly_tai_san.ts_micro_01'), ref('quan_ly_tai_san.ts_ban_hop')])]"/>
+        </record>
+
+        <record id="phong_b01" model="phong_hop">
+            <field name="ma_phong">PH002</field>
+            <field name="ten_phong">Phòng họp B01 - Video Conference</field>
+            <field name="vi_tri">Tầng 2, Tòa nhà A</field>
+            <field name="suc_chua">20</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Phòng họp trung bình, trang bị camera hội nghị cho họp online</field>
+            <field name="thiet_bi_ids" eval="[(6, 0, [ref('quan_ly_tai_san.ts_maychieu_02'), ref('quan_ly_tai_san.ts_camera')])]"/>
+        </record>
+
+        <record id="phong_c01" model="phong_hop">
+            <field name="ma_phong">PH003</field>
+            <field name="ten_phong">Phòng họp C01 - Brainstorm</field>
+            <field name="vi_tri">Tầng 3, Tòa nhà A</field>
+            <field name="suc_chua">10</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Phòng nhỏ, có bảng trắng, phù hợp họp nhóm, brainstorm</field>
+            <field name="thiet_bi_ids" eval="[(6, 0, [ref('quan_ly_tai_san.ts_bang_trang'), ref('quan_ly_tai_san.ts_loa_02')])]"/>
+        </record>
+
+        <record id="phong_d01" model="phong_hop">
+            <field name="ma_phong">PH004</field>
+            <field name="ten_phong">Phòng họp D01 - Đào tạo</field>
+            <field name="vi_tri">Tầng 3, Tòa nhà B</field>
+            <field name="suc_chua">30</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Phòng đào tạo, có bảng flipchart, bàn ghế xếp linh hoạt</field>
+            <field name="thiet_bi_ids" eval="[(6, 0, [ref('quan_ly_tai_san.ts_flipchart')])]"/>
+        </record>
+
+        <record id="phong_e01" model="phong_hop">
+            <field name="ma_phong">PH005</field>
+            <field name="ten_phong">Phòng họp E01 - Phỏng vấn</field>
+            <field name="vi_tri">Tầng 1, Tòa nhà B</field>
+            <field name="suc_chua">5</field>
+            <field name="trang_thai">san_sang</field>
+            <field name="mo_ta">Phòng nhỏ, yên tĩnh, phù hợp phỏng vấn, họp 1-1</field>
+        </record>
+
+    </data>
+</odoo>

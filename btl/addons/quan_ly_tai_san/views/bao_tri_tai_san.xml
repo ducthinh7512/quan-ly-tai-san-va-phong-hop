@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_bao_tri_form" model="ir.ui.view">
+            <field name="name">bao_tri_tai_san.form</field>
+            <field name="model">bao_tri_tai_san</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_bat_dau" string="Bắt đầu bảo trì" type="object" class="btn-primary" attrs="{'invisible': [('trang_thai', '!=', 'cho_xu_ly')]}"/>
+                        <button name="action_hoan_thanh" string="Hoàn thành" type="object" class="btn-success" attrs="{'invisible': [('trang_thai', '!=', 'dang_bao_tri')]}"/>
+                        <field name="trang_thai" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="tai_san_id"/>
+                                <field name="nhan_vien_phu_trach"/>
+                                <field name="chi_phi"/>
+                            </group>
+                            <group>
+                                <field name="ngay_bao_tri"/>
+                                <field name="ngay_hoan_thanh"/>
+                            </group>
+                        </group>
+                        <field name="mo_ta" placeholder="Mô tả công việc bảo trì..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_bao_tri_tree" model="ir.ui.view">
+            <field name="name">bao_tri_tai_san.tree</field>
+            <field name="model">bao_tri_tai_san</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="tai_san_id"/>
+                    <field name="ngay_bao_tri"/>
+                    <field name="nhan_vien_phu_trach"/>
+                    <field name="chi_phi"/>
+                    <field name="trang_thai"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_bao_tri" model="ir.actions.act_window">
+            <field name="name">Bảo trì tài sản</field>
+            <field name="res_model">bao_tri_tai_san</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

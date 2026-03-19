@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_tai_san_form" model="ir.ui.view">
+            <field name="name">tai_san.form</field>
+            <field name="model">tai_san</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="hinh_anh" widget="image" class="oe_avatar"/>
+                        <div class="oe_title">
+                            <h1><field name="ten_tai_san"/></h1>
+                        </div>
+                        <group>
+                            <group string="Thông tin cơ bản">
+                                <field name="ma_tai_san"/>
+                                <field name="danh_muc_id"/>
+                                <field name="trang_thai"/>
+                                <field name="vi_tri"/>
+                            </group>
+                            <group string="Giá trị">
+                                <field name="ngay_mua"/>
+                                <field name="gia_tri"/>
+                            </group>
+                        </group>
+                        <field name="mo_ta" placeholder="Mô tả chi tiết tài sản..."/>
+                        <notebook>
+                            <page string="Lịch sử mượn">
+                                <field name="muon_tai_san_ids">
+                                    <tree>
+                                        <field name="nhan_vien_id"/>
+                                        <field name="ngay_muon"/>
+                                        <field name="ngay_tra_du_kien"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Bảo trì">
+                                <field name="bao_tri_ids">
+                                    <tree>
+                                        <field name="ngay_bao_tri"/>
+                                        <field name="mo_ta"/>
+                                        <field name="chi_phi"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Sự cố">
+                                <field name="su_co_ids">
+                                    <tree>
+                                        <field name="ngay_bao_cao"/>
+                                        <field name="loai_su_co"/>
+                                        <field name="nhan_vien_bao_cao"/>
+                                        <field name="trang_thai"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tai_san_tree" model="ir.ui.view">
+            <field name="name">tai_san.tree</field>
+            <field name="model">tai_san</field>
+            <field name="arch" type="xml">
+                <tree decoration-danger="trang_thai in ('hong','mat')" decoration-warning="trang_thai == 'bao_tri'" decoration-info="trang_thai == 'dang_muon'">
+                    <field name="ma_tai_san"/>
+                    <field name="ten_tai_san"/>
+                    <field name="danh_muc_id"/>
+                    <field name="trang_thai"/>
+                    <field name="vi_tri"/>
+                    <field name="gia_tri"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="tai_san_search">
+            <field name="model">tai_san</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ten_tai_san"/>
+                    <field name="ma_tai_san"/>
+                    <field name="danh_muc_id"/>
+                    <filter string="Sẵn sàng" name="san_sang" domain="[('trang_thai','=','san_sang')]"/>
+                    <filter string="Đang mượn" name="dang_muon" domain="[('trang_thai','=','dang_muon')]"/>
+                    <filter string="Hỏng/Mất" name="hong_mat" domain="[('trang_thai','in',['hong','mat'])]"/>
+                    <group expand="0" string="Nhóm theo">
+                        <filter string="Danh mục" name="group_danh_muc" context="{'group_by':'danh_muc_id'}"/>
+                        <filter string="Trạng thái" name="group_trang_thai" context="{'group_by':'trang_thai'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_tai_san" model="ir.actions.act_window">
+            <field name="name">Tài sản</field>
+            <field name="res_model">tai_san</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="tai_san_search"/>
+        </record>
+    </data>
+</odoo>
